@@ -1,5 +1,23 @@
 # 存档目录
 savePath: "c:/Program Files (x86)/Steam/userdata/账户ID/262060/remote"
 
-# 备份文件夹(一般不需要修改)
-backupDir: backup
+# 语言=========================================
+
+language:
+# 标题
+  title: "备份工具"
+# 按钮
+  backup: "备份"
+  restore: "还原"
+  clear: "清理"
+# 消息
+  backup_begin: "开始备份"
+  restore_begin: "开始还原"
+  clear_begin: "开始清理"
+  backup_done: "备份完成"
+  restore_done: "还原完成"
+  clear_done: "清理完成"
+  backup_save_to: "备份当前存档到"
+  get_recycle_path_fail: "获取回收站路径失败"
+  path: "路径"
+  keep_dir: "保留文件夹"

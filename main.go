@@ -19,7 +19,7 @@ var g_ptrOutTE *walk.TextEdit
 
 func backup() error {
 	if tar, err := g_ptrConfig.GetBackupDir(); err == nil {
-		Print("开始备份:", g_ptrConfig.SavePath, "->", tar)
+		Print(g_ptrConfig.GetLanguage("backup_begin"), g_ptrConfig.SavePath, "->", tar)
 		if err := help.Cp(g_ptrConfig.SavePath, tar); err == nil {
 			return nil
 		} else {
@@ -34,15 +34,15 @@ func restore() error {
 	if pathRestore, err := g_ptrConfig.GetNewestBackup(); err == nil {
 		// 备份
 		if pathRecycle, err := g_ptrConfig.GetRecyclePath(); err == nil {
-			Print("备份当前存档到:", pathRecycle)
+			Print(g_ptrConfig.GetLanguage("backup_save_to"), pathRecycle)
 			help.Rm(pathRecycle)
 			help.Cp(g_ptrConfig.SavePath, pathRecycle)
 		} else {
-			Print("获取回收站路径失败:", err)
+			Print(g_ptrConfig.GetLanguage("get_recycle_path_fail"), err)
 		}
 
 		// 还原
-		Print("开始还原:", pathRestore, "->", g_ptrConfig.SavePath)
+		Print(g_ptrConfig.GetLanguage("restore_begin"), pathRestore, "->", g_ptrConfig.SavePath)
 		if err := help.Cp(pathRestore, g_ptrConfig.SavePath); err == nil {
 			return nil
 		} else {
@@ -55,9 +55,9 @@ func restore() error {
 
 func clear() error {
 	if pathRm, err := g_ptrConfig.GetBackupPath(); err == nil {
-		Print("开始清理路径:", pathRm)
+		Print(g_ptrConfig.GetLanguage("clear_begin"), g_ptrConfig.GetLanguage("path"), pathRm)
 		if pathKeep, err := g_ptrConfig.GetNewestBackup(); err == nil {
-			Print("保留文件夹:", pathKeep)
+			Print(g_ptrConfig.GetLanguage("keep_dir"), pathKeep)
 			if sliFolder, err := help.GetDirFolder(pathRm); err == nil {
 				for _, folder := range sliFolder {
 					if folder == pathKeep {
@@ -94,35 +94,35 @@ func main() {
 	}
 
 	MainWindow{
-		Title:  "备份",
+		Title:  g_ptrConfig.GetLanguage("title"),
 		Size:   Size{700, 300},
 		Layout: VBox{},
 		Children: []Widget{
 			PushButton{
-				Text: "备份",
+				Text: g_ptrConfig.GetLanguage("backup"),
 				OnClicked: func() {
 					if err := backup(); err == nil {
-						Print("备份成功")
+						Print(g_ptrConfig.GetLanguage("backup_done"))
 					} else {
 						PrintError(err)
 					}
 				},
 			},
 			PushButton{
-				Text: "还原",
+				Text: g_ptrConfig.GetLanguage("restore"),
 				OnClicked: func() {
 					if err := restore(); err == nil {
-						Print("还原完成")
+						Print(g_ptrConfig.GetLanguage("restore_done"))
 					} else {
 						PrintError(err)
 					}
 				},
 			},
 			PushButton{
-				Text: "清理",
+				Text: g_ptrConfig.GetLanguage("clear"),
 				OnClicked: func() {
 					if err := clear(); err == nil {
-						Print("清理成功")
+						Print(g_ptrConfig.GetLanguage("clear_done"))
 					} else {
 						PrintError(err)
 					}

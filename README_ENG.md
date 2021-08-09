@@ -14,3 +14,8 @@ Aloth it can backup other files also.
 - Fast restore the newest backup file to the target Dir
 - Before restore, backup target Dir to recycle folder in case mistake operation
 - Fast clear backups except the latest one
+
+## Usage
+
+- modify`savePath` to your own save path in `config.yaml`(basically change `账户ID` to your self steam ID will be OK)
+- run`DarkestDungeonSaveBackupTool.exe`

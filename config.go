@@ -20,15 +20,19 @@ const SAVE_PREFIX string = "save_"
 const PATH_RECYCLE string = "recycle"
 
 type Config struct {
-	SavePath  string `yaml:"savePath"`
-	BackupDir string `yaml:"backupDir"`
+	SavePath    string            `yaml:"savePath"`
+	BackupDir   string            `yaml:"backupDir"`
+	MapLanguage map[string]string `yaml:"language"`
 }
 
 func NewConfig() *Config {
-	return &Config{}
+	return &Config{
+		MapLanguage: make(map[string]string),
+	}
 }
 
 func (this *Config) Load(path string) error {
+	// 读取配置
 	f, err := ioutil.ReadFile(path)
 	if err != nil {
 		return err
@@ -38,10 +42,26 @@ func (this *Config) Load(path string) error {
 		return err
 	}
 
+	// 目录整理
 	this.SavePath = this.fixPathLastIndex(this.SavePath)
-	this.BackupDir = this.fixPathLastIndex(this.BackupDir)
+	this.BackupDir = "backup" // 不需要走配置了,没必要
 
 	return nil
+}
+
+// 获取语言配置
+func (this *Config) GetLanguage(key string) string {
+	if this.MapLanguage == nil {
+		PrintError(errors.New("m_mapLanguage == nil"))
+		return key
+	}
+
+	if val, ok := this.MapLanguage[key]; ok {
+		return val
+	} else {
+		PrintError(errors.New("no key:" + key + " found"))
+		return key
+	}
 }
 
 // 获取备份路径
