@@ -1,4 +1,4 @@
-module github.com/caticat/go_save_backup
+module github.com/caticat/go_darkestDungeonSaveBackupTool
 
 go 1.14
 
