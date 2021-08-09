@@ -5,7 +5,6 @@ import (
 	"errors"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"sort"
@@ -85,7 +84,7 @@ func (this *Config) GetNewestBackup() (string, error) {
 			if i, err := strconv.ParseUint(strSuffix, 10, 64); err == nil {
 				sliPathDate = append(sliPathDate, i)
 			} else {
-				log.Println("skip path:", folder) // 这里的报错只需要记录过掉的目录即可
+				Print("skip path:", folder) // 这里的报错只需要记录过掉的目录即可
 			}
 		}
 	} else {
