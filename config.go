@@ -1,8 +1,8 @@
 package main
 
 import (
-	"caticat.github.com/go_save_backup/help"
 	"errors"
+	"github.com/caticat/go_save_backup/help"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"

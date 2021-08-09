@@ -1,8 +1,8 @@
 package main
 
 import (
-	"caticat.github.com/go_save_backup/help"
 	"fmt"
+	"github.com/caticat/go_save_backup/help"
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
 	"log"
