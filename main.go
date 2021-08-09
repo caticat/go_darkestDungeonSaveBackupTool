@@ -135,25 +135,4 @@ func main() {
 			},
 		},
 	}.Run()
-
-	// 备份
-	//if err := backup(); err == nil {
-	//	log.Println("备份成功")
-	//} else {
-	//	log.Fatal(err)
-	//}
-
-	// 还原
-	//if err := restore(); err == nil {
-	//	log.Println("还原完成")
-	//} else {
-	//	log.Fatal(err)
-	//}
-
-	// 清理
-	//if err := clear(); err == nil {
-	//	log.Println("清理成功")
-	//} else {
-	//	log.Fatal(err)
-	//}
 }

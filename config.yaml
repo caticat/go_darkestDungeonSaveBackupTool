@@ -1,5 +1,5 @@
 # 存档目录
-savePath: "c:/Program Files (x86)/Steam/userdata/140126580/262060/remote"
+savePath: "c:/Program Files (x86)/Steam/userdata/账户ID/262060/remote"
 
-# 备份文件夹
+# 备份文件夹(一般不需要修改)
 backupDir: backup

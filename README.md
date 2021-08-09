@@ -1,14 +1,16 @@
-# DarkestDungeonSaveBackupTool
+# 黑暗地牢存档备份工具
 
-## Outline
+[English](./README_ENG.md)
 
-Use for backup save files for the game Darkest Dungeon
-Aloth it can backup other files also.
+## 功能
 
-## Util
+快速的备份还原黑暗地牢的存档
+PS: 还可以备份其他文件夹, 功能上没有限制
 
-- Backup target Dir to backup dir
-- The backups has been renamed by date, so you can get multi backups at same time
-- Fast restore the newest backup file to the target Dir
-- Before restore, backup target Dir to recycle folder in case mistake operation
-- Fast clear backups except the latest one
+## 功能
+
+- 备份指定文件夹到备份文件夹
+- 备份会被按照备份时间重命名,同时可以有多个时间点的备份
+- 还原时,直接使用最新的备份进行还原
+- 还原前,自动备份回进行覆盖的目录,防止误操作(备份文件放在recycle目录中)
+- 清理功能可以快速清理除了最新备份以外的所有其他冗余备份
