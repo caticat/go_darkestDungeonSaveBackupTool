@@ -38,6 +38,9 @@ func (this *Config) Load(path string) error {
 		return err
 	}
 
+	this.SavePath = this.fixPathLastIndex(this.SavePath)
+	this.BackupDir = this.fixPathLastIndex(this.BackupDir)
+
 	return nil
 }
 
@@ -111,4 +114,15 @@ func (this *Config) GetNewestBackup() (string, error) {
 // 生成备份文件夹名
 func (this *Config) genBackupDirName() string {
 	return SAVE_PREFIX + time.Now().Format("20060102150405")
+}
+
+// 去掉目录最后的分隔符
+func (this *Config) fixPathLastIndex(p string) string {
+	if len(p) == 0 {
+		return ""
+	}
+	if (p[len(p)-1] == '/') || (p[len(p)-1] == '\\') {
+		return p[0 : len(p)-1]
+	}
+	return p
 }
