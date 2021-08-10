@@ -16,12 +16,14 @@ import (
 // 命名前缀
 const SAVE_PREFIX string = "save_"
 
+// 备份目录
+const PATH_BACKUP string = "backup"
+
 // 回收站
 const PATH_RECYCLE string = "recycle"
 
 type Config struct {
 	SavePath    string            `yaml:"savePath"`
-	BackupDir   string            `yaml:"backupDir"`
 	MapLanguage map[string]string `yaml:"language"`
 }
 
@@ -44,7 +46,6 @@ func (this *Config) Load(path string) error {
 
 	// 目录整理
 	this.SavePath = this.fixPathLastIndex(this.SavePath)
-	this.BackupDir = "backup" // 不需要走配置了,没必要
 
 	return nil
 }
@@ -70,7 +71,7 @@ func (this *Config) GetBackupPath() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return help.FormatPath(path.Join(cwd, this.BackupDir)), nil
+	return help.FormatPath(path.Join(cwd, PATH_BACKUP)), nil
 }
 
 // 获取回收站路径
