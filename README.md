@@ -20,3 +20,7 @@ PS: 还可以备份其他文件夹, 功能上没有限制
 - 修改`config.yaml`中的`savePath`,改成自己存档的对应目录(基本上只要修改`账户ID`为自己的ID即可)
 - 运行`DarkestDungeonSaveBackupTool.exe`
 - **还原时需要先退出游戏**,其他操作无需关闭游戏
+
+## 项目
+
+[地址](https://github.com/caticat/go_darkestDungeonSaveBackupTool/releases)

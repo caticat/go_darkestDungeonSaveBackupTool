@@ -20,3 +20,7 @@ Aloth it can backup other files also.
 - modify`savePath` to your own save path in `config.yaml`(basically change `账户ID` to your self steam ID will be OK)
 - run`DarkestDungeonSaveBackupTool.exe`
 - **Exit Game Before Restore**, backup & clear do not need close game
+
+## Project
+
+[URL](https://github.com/caticat/go_darkestDungeonSaveBackupTool/releases)
